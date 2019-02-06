@@ -1,0 +1,22 @@
+window_sizes 1800 901 450 1344 715 128
+
+diagrams
+  active  classdiagram_ref 128002 // HW5
+    1333 673 50 A0 0 0
+end
+show_stereotypes
+selected class_ref 129026 // PolygonVect
+open
+  classview_ref 128002 // HW5
+  classview_ref 128130 // HW5
+  deploymentview_ref 128770 // BaseShape
+  deploymentview_ref 128002 // HW5
+  classview_ref 128258 // HW5
+  classview_ref 128386 // HW5
+  classview_ref 128514 // HW5
+  deploymentview_ref 128898 // DerivedTri
+  classview_ref 128642 // HW5
+  classview_ref 128770 // HW5
+  classview_ref 128898 // HW5
+end
+end

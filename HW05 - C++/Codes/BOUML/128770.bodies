@@ -1,0 +1,13 @@
+class Point2D
+!!!136578.cpp!!!	getx() : double
+
+		return x;
+!!!136706.cpp!!!	gety() : double
+
+		return y;
+!!!136834.cpp!!!	setx(in point : double) : void
+
+		x = point;
+!!!136962.cpp!!!	sety(in point : double) : void
+
+		y = point;

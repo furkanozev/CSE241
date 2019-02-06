@@ -1,0 +1,604 @@
+format 221
+"HW5" // HW5
+  revision 1
+  modified_by 2 "furka"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:\\Users\\furka\\OneDrive\\Masaüstü\\HW5/"
+  cpp_src_dir "C:\\Users\\furka\\OneDrive\\Masaüstü\\HW5/"
+  cpp_namespace "DerivedCirc"
+  classview 128002 "HW5"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 128002 "Circle"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128002 // <generalisation>
+	relation 128002 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128002 // <generalisation>
+	  b parent class_ref 128130 // Shape
+      end
+
+      operation 128002 "Circle"
+	preserve_cpp_body_indent cpp_noexcept public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// Composition used in this part. 
+// Constructor 1: No parameter
+
+${inline}${class}::${name}${(}${)} noexcept
+				:Shape(\"circle\")
+	${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Constructor: 
+1- No parameter and using set functions to set values.
+2- Parameter is radius and using set functions to set centerx, centery and others.
+3- All of the parameters have been entered. "
+      end
+
+      operation 128130 "Circle"
+	preserve_cpp_body_indent cpp_noexcept public explicit_return_type ""
+	nparams 1
+	  param in name "radius_val" explicit_type "double"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// Constructor 2: get width and height
+
+${inline}${class}::${name}${(}${t0} ${p0}${)} noexcept
+					:Shape(\"circle\"), radius(radius_val)
+	${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 128258 "Circle"
+	preserve_cpp_body_indent cpp_noexcept public explicit_return_type ""
+	nparams 4
+	  param in name "radius_val" explicit_type "double"
+	  param in name "centerx_val" explicit_type "double"
+	  param in name "centery_val" explicit_type "double"
+	  param in name "color_" explicit_type "string"
+	    defaultvalue "\"red\""
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}, ${t3} ${p3}${v3}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// Constructor 2: get width, height, posx, posy
+
+${inline}${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)} noexcept
+					:Shape(\"circle\"), radius(radius_val), centerx(centerx_val), centery(centery_val), color(color_)
+	${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 128386 "setradius"
+	preserve_cpp_body_indent cpp_noexcept public explicit_return_type "void"
+	nparams 1
+	  param in name "radius_val" explicit_type "double"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Setter "
+      end
+
+      operation 128514 "setcenterx"
+	preserve_cpp_body_indent cpp_noexcept public explicit_return_type "void"
+	nparams 1
+	  param in name "centerx_val" explicit_type "double"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " function sets a value to radius."
+      end
+
+      operation 128642 "setcentery"
+	preserve_cpp_body_indent cpp_noexcept public explicit_return_type "void"
+	nparams 1
+	  param in name "centery_val" explicit_type "double"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " function sets a value to position x of center."
+      end
+
+      operation 128770 "setcolor"
+	preserve_cpp_body_indent cpp_noexcept public explicit_return_type "void"
+	nparams 1
+	  param in name "color_val" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " function sets a value to position y of center."
+      end
+
+      operation 128898 "getradius"
+	preserve_cpp_body_indent const cpp_noexcept public explicit_return_type "double"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// Getter 
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "function sets a value to color of shape.
+ Getter functions is const "
+      end
+
+      operation 129026 "getcenterx"
+	preserve_cpp_body_indent const cpp_noexcept public explicit_return_type "double"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "function returns a radius of shape."
+      end
+
+      operation 129154 "getcentery"
+	preserve_cpp_body_indent const cpp_noexcept public explicit_return_type "double"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "function returns a center x coordinate of shape."
+      end
+
+      operation 129282 "perimeter"
+	preserve_cpp_body_indent const cpp_virtual cpp_noexcept public explicit_return_type "double"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "function returns a center y coordinate of shape."
+      end
+
+      operation 129410 "area"
+	preserve_cpp_body_indent const cpp_virtual cpp_noexcept public explicit_return_type "double"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129538 "operator ++"
+	cpp_virtual cpp_noexcept public return_type class_ref 128002 // Circle
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " for incrementing and decrementing the shape positions by 1.0 "
+      end
+
+      operation 129666 "operator ++"
+	preserve_cpp_body_indent cpp_virtual cpp_noexcept public return_type class_ref 128002 // Circle
+	nparams 1
+	  param in name "" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "//Prefix incrementing : Firstly increase value then return shape.
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Prefix incrementing"
+      end
+
+      operation 129794 "operator --"
+	cpp_virtual public return_type class_ref 128002 // Circle
+	nparams 0
+	nexceptions 1
+	  explicit_exception "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Postfix incrementing"
+      end
+
+      operation 129922 "operator --"
+	preserve_cpp_body_indent cpp_virtual public return_type class_ref 128002 // Circle
+	nparams 1
+	  param in name "" explicit_type "int"
+	nexceptions 1
+	  explicit_exception "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "//Prefix decrementing : Firstly decrease value then return shape.
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Prefix decrementing"
+      end
+
+      operation 130050 "operator +"
+	preserve_cpp_body_indent cpp_noexcept public return_type class_ref 128002 // Circle
+	nparams 1
+	  param in name "x" explicit_type "double"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// take a double as a parameter and they will add this double to the size of the shape to make the new shape 
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Postfix decrementing
+ take a double as a parameter and they will add this double to the size of the shape to make the new shape "
+      end
+
+      operation 130178 "operator -"
+	preserve_cpp_body_indent public return_type class_ref 128002 // Circle
+	nparams 1
+	  param in name "x" explicit_type "double"
+	nexceptions 1
+	  explicit_exception "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 130306 "print"
+	cpp_virtual cpp_noexcept public explicit_return_type "void"
+	nparams 1
+	  param inout name "os" explicit_type "ostream"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 130434 "add_total_area"
+	preserve_cpp_body_indent cpp_noexcept public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " add new shape's area to static holder area member  . "
+      end
+
+      operation 130562 "add_total_perimeter"
+	preserve_cpp_body_indent cpp_noexcept public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " add new shape's perimeter to static holder perimeter member  . "
+      end
+
+      operation 130690 "get_total_area"
+	class_operation preserve_cpp_body_indent cpp_noexcept public explicit_return_type "double"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Total area getter static function "
+      end
+
+      operation 130818 "get_total_perimeter"
+	class_operation preserve_cpp_body_indent cpp_noexcept public explicit_return_type "double"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Total perimeter getter static function "
+      end
+
+      operation 130946 "getcolor"
+	const cpp_noexcept cpp_inline public explicit_return_type "string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+				return color;
+			};
+"
+	
+	
+	
+	
+	comment " Used inline function "
+      end
+
+      attribute 128002 "radius"
+	private explicit_type "double"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128130 "centerx"
+	private explicit_type "double"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128258 "centery"
+	private explicit_type "double"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128386 "color"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128514 "total_area"
+	class_attribute private explicit_type "double"
+	init_value "=0"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Static members 
+"
+      end
+
+      attribute 128642 "total_perimeter"
+	class_attribute private explicit_type "double"
+	init_value "=0"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    classdiagram 128002 "HW5"
+      classdiagramsettings member_max_width 0 end
+      size A0
+    end
+  end
+
+  package_ref 128130 // BaseShape
+
+  deploymentview 128002 "HW5"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 128002 "circle"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128002 // Circle
+      end
+    end
+  end
+
+  package_ref 128258 // DerivedComp
+
+  package_ref 128386 // DerivedRect
+
+  package_ref 128514 // DerivedTri
+
+  package_ref 128642 // DerivedPolygon
+
+  package_ref 128770 // DerivedPolyDyn
+
+  package_ref 128898 // DerivedPolyVec
+
+  package_ref 129026 // HW5
+end

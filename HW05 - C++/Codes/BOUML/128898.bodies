@@ -1,0 +1,188 @@
+class PolygonDyn
+!!!138242.cpp!!!	~PolygonDyn()
+
+		/* deallocate memory */
+		delete[] shapes;
+		shapes = NULL;
+!!!138370.cpp!!!	PolygonDyn(in new_shape : PolygonDyn)
+
+		/* Allocate memory, initilaze size then copy points from parameter object */
+		int i;
+		size = new_shape.size;
+		shapes = new Point2D [size];
+		for(i=0; i<size; i++)
+		{
+			shapes[i] = new_shape[i]; // '[]' index operator used in here instead of new_shape.shapes[i].
+		}
+		area_ = new_shape.area();
+		perimeter_ = new_shape.perimeter();
+		name = new_shape.getname();
+		color = new_shape.getcolor();
+!!!138498.cpp!!!	operator =(in new_shape : PolygonDyn) : PolygonDyn
+
+		/* Deallocate old memory then allocate new memory and update size. After that copy points from parameter object */
+		int i;
+		size = new_shape.size;
+		delete[] shapes;
+		shapes = new Point2D [size];
+		for(i=0; i<size; i++)
+		{
+			shapes[i] = new_shape[i]; // '[]' index operator used in here instead of new_shape.shapes[i].
+		}
+		area_ = new_shape.area();
+		perimeter_ = new_shape.perimeter();
+		name = new_shape.getname();
+		color = new_shape.getcolor();
+		return *this;		// return this object
+!!!138626.cpp!!!	PolygonDyn()
+
+		// size will be 0 and pointer will be null
+		size = 0;
+		shapes = NULL;
+		area_ = 0;
+		perimeter_ = 0;
+		color = "blue";
+!!!138754.cpp!!!	PolygonDyn(in inners : vector<Point2D>)
+
+		int i = 0;
+		size = inners.size();		// assign size 
+		shapes = new Point2D[size];	// Memory allocated up to size.
+		for(Point2D shape: inners)
+		{
+			// Copy Point2D object from vector into Polygon object.
+			shapes[i] = shape;
+			i++;
+		}
+		area_ = 0;
+		perimeter_ = 0;
+!!!138882.cpp!!!	PolygonDyn(in shape : Point2D)
+
+		// Allocate memory to 1 Point2D object then copy in array
+		size = 1;		// size will be 1.
+		shapes = new Point2D;
+		(*shapes) = shape;
+		area_ = 0;
+		perimeter_ = 0;
+!!!139010.cpp!!!	PolygonDyn(in shape : Rectangle)
+
+		size = 4;		// size will be 4.
+		// Allocate memory to 4 Point2D object then copy in array
+		shapes = new Point2D[4];
+		shapes[0].setx(shape.getposx());
+		shapes[0].sety(shape.getposy());
+		shapes[1].setx(shape.getposx() + shape.getwidth());
+		shapes[1].sety(shape.getposy());
+		shapes[2].setx(shape.getposx() + shape.getwidth());
+		shapes[2].sety(shape.getposy() + shape.getheight());
+		shapes[3].setx(shape.getposx());
+		shapes[3].sety(shape.getposy() + shape.getheight());
+		area_ = shape.area();
+		perimeter_ = shape.perimeter();
+		color = shape.getcolor();
+!!!139138.cpp!!!	PolygonDyn(in shape : Circle)
+
+		size = 100;		// size will be 100.
+		// Allocate memory to 100 Point2D object then copy in array
+		int i;
+		double angle = 0;
+		shapes = new Point2D[100];
+		for(i=0; i<100; i++)
+		{
+			// Circle parametric equation
+			//	x = cx + r * cos(a)
+			//	y = cy + r * sin(a)	
+			angle = (360.0/100) * i;
+			shapes[i].setx(shape.getcenterx() + shape.getradius() * cos(angle * PI / 180.0));
+			shapes[i].sety(shape.getcentery() + shape.getradius() * sin(angle * PI / 180.0));
+		}
+		area_ = shape.area();
+		perimeter_ = shape.perimeter();
+		color = shape.getcolor();
+!!!139266.cpp!!!	PolygonDyn(in shape : Triangle)
+
+		size = 3;	// size will be 3.
+		// Allocate memory to 3 Point2D object then copy in array
+		shapes = new Point2D[3];
+		shapes[0].setx(shape.getposx1());
+		shapes[0].sety(shape.getposy1());
+		shapes[1].setx(shape.getposx2());
+		shapes[1].sety(shape.getposy2());
+		shapes[2].setx(shape.getposx3());
+		shapes[2].sety(shape.getposy3());
+		area_ = shape.area();
+		perimeter_ = shape.perimeter();
+		color = shape.getcolor();
+!!!139394.cpp!!!	operator [](in index : int) : Point2D
+
+		// error check
+		try
+		{
+			if(size > index && index >= 0)
+	    	{
+	    		return shapes[index];
+			}
+			else throw "Out of Range error.";
+		}	
+    	catch(string s)
+		{
+			cerr<<endl<<s<<endl;
+			return shapes[0];
+		}
+!!!139522.cpp!!!	operator [](in index : int) : Point2D
+
+    	// error check
+		try
+		{
+			if(size > index && index >= 0)
+	    	{
+	    		return shapes[index];
+			}
+			else throw "Out of Range error.";
+		}	
+    	catch(string s)
+		{
+			cerr<<endl<<s<<endl;
+			return shapes[0];
+		}
+!!!139650.cpp!!!	get_size() : int
+
+		return size;
+!!!139778.cpp!!!	set_size(in number : int) : void
+
+		size = number;
+!!!139906.cpp!!!	perimeter() : double
+
+		return perimeter_;
+!!!140034.cpp!!!	area() : double
+
+		return area_;
+!!!140162.cpp!!!	set_area(in x : double) : void
+
+		area_ = x;
+!!!140290.cpp!!!	set_perimeter(in x : double) : void
+
+		perimeter_ = x;
+!!!140546.cpp!!!	operator ++(in  : int) : PolygonDyn
+
+		int i;
+		for(i = 0 ; i < size ; i++)
+		{
+			shapes[i].setx(shapes[i].getx() + 1);
+			shapes[i].sety(shapes[i].gety() + 1);
+		}
+		return (*this);
+!!!140802.cpp!!!	operator --(in  : int) : PolygonDyn
+ 
+		for(int i = 0 ; i < size ; i++)
+		{
+			// position can not be negative.
+			if(shapes[i].getx()-1>= 0 && shapes[i].gety()-1>= 0)
+			{
+				shapes[i].setx(shapes[i].getx() - 1);
+				shapes[i].sety(shapes[i].gety() - 1);
+			}
+		}
+		return (*this);
+!!!141186.cpp!!!	getcolor() : string
+
+		return color;

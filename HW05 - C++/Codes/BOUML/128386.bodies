@@ -1,0 +1,104 @@
+class Rectangle
+!!!144514.cpp!!!	Rectangle(in width_val : double, in height_val : double)
+
+		/* Add area and perimeter of new's shape */
+		add_total_area();
+		add_total_perimeter();
+		posx = 0;
+		posy = 0;
+		color = "red";
+!!!144642.cpp!!!	Rectangle(in width_val : double, in height_val : double, in posx_val : double, in posy_val : double, in color_ : string = "red")
+
+		/* Add area and perimeter of new's shape */
+		add_total_area();
+		add_total_perimeter();		
+!!!144770.cpp!!!	setwidth(in width_val : double) : void
+
+		width = width_val;	
+!!!144898.cpp!!!	setheight(in height_val : double) : void
+
+		height = height_val;	
+!!!145026.cpp!!!	setposx(in posx_val : double) : void
+
+		posx = posx_val;	
+!!!145154.cpp!!!	setposy(in posy_val : double) : void
+
+		posy = posy_val;	
+!!!145282.cpp!!!	setcolor(in color_val : string) : void
+ 
+		color = color_val;
+!!!145410.cpp!!!	getwidth() : double
+
+		return width;
+!!!145538.cpp!!!	getheight() : double
+
+		return height;
+!!!145666.cpp!!!	getposx() : double
+
+		return posx;
+!!!145794.cpp!!!	getposy() : double
+
+		return posy;
+!!!145922.cpp!!!	perimeter() : double
+
+		return (width+height)*2;
+!!!146050.cpp!!!	area() : double
+
+		return width*height;
+!!!146306.cpp!!!	operator ++(in  : int) : Rectangle
+
+		posx++;
+		posy++;
+		return (*this);
+!!!146562.cpp!!!	operator --(in  : int) : Rectangle
+
+		// position can not be negative.
+		try
+		{
+			if(posx-1>= 0 && posy-1>= 0)
+			{
+				posx--;
+				posy--;
+			}
+			else throw "Coordinate can not be negative.";
+		}
+		catch(string s)
+		{
+			cerr<<endl<<s<<endl;
+		}
+		return (*this);
+!!!146690.cpp!!!	operator +(in x : double) : Rectangle
+
+		Rectangle shape(width,height,posx,posy);
+		shape.width += x;
+		shape.height += x;
+		return shape;
+!!!146818.cpp!!!	operator -(in x : double) : Rectangle
+
+		Rectangle shape(width,height,posx,posy);
+		try
+		{
+			if(shape.width-x >= 0 && shape.height-x >= 0)
+			{
+				shape.width -= x;
+				shape.height -= x;
+			}
+			else throw "Width or Height can not be negative.";
+		}
+		catch(string s)
+		{
+			cerr<<endl<<s<<endl;
+		}
+		return shape;
+!!!147074.cpp!!!	add_total_area() : void
+
+		total_area += (width*height);	
+!!!147202.cpp!!!	add_total_perimeter() : void
+
+		total_perimeter += (2*(width+height));
+!!!147330.cpp!!!	get_total_area() : double
+
+		return total_area;
+!!!147458.cpp!!!	get_total_perimeter() : double
+
+		return total_perimeter;

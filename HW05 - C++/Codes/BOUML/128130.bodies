@@ -1,0 +1,25 @@
+class Shape
+!!!148354.cpp!!!	operator ==(in other : Shape) : bool
+
+		return (area() == other.area());
+!!!148482.cpp!!!	operator !=(in other : Shape) : bool
+
+		return (area() != other.area());
+!!!148610.cpp!!!	operator >=(in other : Shape) : bool
+
+		return (area() >= other.area());
+!!!148738.cpp!!!	operator <=(in other : Shape) : bool
+
+		return (area() <= other.area());
+!!!148866.cpp!!!	operator <(in other : Shape) : bool
+
+		return (area() < other.area());
+!!!148994.cpp!!!	operator >(in other : Shape) : bool
+
+		return (area() > other.area());
+!!!149762.cpp!!!	getname() : string
+
+		return name;
+!!!149890.cpp!!!	setname(in x : string) : void
+
+		name = x;

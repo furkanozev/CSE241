@@ -1,0 +1,92 @@
+class Circle
+!!!128130.cpp!!!	Circle(in radius_val : double)
+
+		/* Add area and perimeter of new's shape */
+		add_total_area();
+		add_total_perimeter();
+		centerx = radius;
+		centery = radius;
+		color = "red";
+!!!128258.cpp!!!	Circle(in radius_val : double, in centerx_val : double, in centery_val : double, in color_ : string = "red")
+
+		/* Add area and perimeter of new's shape */
+		add_total_area();
+		add_total_perimeter();
+!!!128386.cpp!!!	setradius(in radius_val : double) : void
+
+		radius = radius_val;
+!!!128514.cpp!!!	setcenterx(in centerx_val : double) : void
+
+		centerx = centerx_val;
+!!!128642.cpp!!!	setcentery(in centery_val : double) : void
+
+		centery = centery_val;
+!!!128770.cpp!!!	setcolor(in color_val : string) : void
+
+		color = color_val;
+!!!128898.cpp!!!	getradius() : double
+
+		return radius;
+!!!129026.cpp!!!	getcenterx() : double
+
+		return centerx;
+!!!129154.cpp!!!	getcentery() : double
+
+		return centery;
+!!!129282.cpp!!!	perimeter() : double
+
+		return (2*M_PI*radius);
+!!!129410.cpp!!!	area() : double
+
+		return (M_PI*radius*radius);
+!!!129666.cpp!!!	operator ++(in  : int) : Circle
+
+		centerx++;
+		centery++;
+		return (*this);
+!!!129922.cpp!!!	operator --(in  : int) : Circle
+
+		try
+		{
+			if(centerx-1>= 0 && centery-1>= 0)
+			{
+			centerx--;
+			centery--;
+			}
+			else throw "Coordinate can not be negative.";
+		}
+		catch(string s)
+		{
+			cerr<<endl<<s<<endl;
+		}
+		return (*this);
+!!!130050.cpp!!!	operator +(in x : double) : Circle
+
+		Circle shape(radius,centerx,centery);
+		shape.radius += x;
+		return shape;
+!!!130178.cpp!!!	operator -(in x : double) : Circle
+
+		Circle shape(radius,centerx,centery);
+		try
+		{
+			if(shape.radius-x >= 0) shape.radius -= x;
+			else throw "Radius can not be negative.";
+		}
+		catch(string s)
+		{
+			cerr<<endl<<s<<endl;
+		}
+		return shape;
+!!!130434.cpp!!!	add_total_area() : void
+
+		total_area += (M_PI*radius*radius);	
+!!!130562.cpp!!!	add_total_perimeter() : void
+
+		total_perimeter += (2*M_PI*radius);
+!!!130690.cpp!!!	get_total_area() : double
+
+		return total_area;
+!!!130818.cpp!!!	get_total_perimeter() : double
+
+		return total_perimeter;

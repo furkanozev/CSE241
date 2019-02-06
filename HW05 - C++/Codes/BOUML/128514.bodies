@@ -1,0 +1,128 @@
+class Triangle
+!!!150146.cpp!!!	Triangle(in edge_val : double)
+
+		/* Add area and perimeter of new's shape */
+		add_total_area();
+		add_total_perimeter();	
+		posx1 = edge / 2;
+		posy1 = 0;
+		posx2 = 0;
+		posy2 = (edge / 2) * sqrt(3);
+		posx3 = edge;
+		posy3 = (edge / 2) * sqrt(3);
+		color = "red";
+!!!150274.cpp!!!	Triangle(in edge_val : double, in posx1_val : double, in posy1_val : double, in posx2_val : double, in posy2_val : double, in posx3_val : double, in posy3_val : double, in color_ : string = "red")
+
+		/* Add area and perimeter of new's shape */
+		add_total_area();
+		add_total_perimeter();	
+!!!150402.cpp!!!	setedge(in edge_val : double) : void
+
+		edge = edge_val;
+!!!150530.cpp!!!	setposx1(in posx_val : double) : void
+
+		posx1 = posx_val;
+!!!150658.cpp!!!	setposy1(in posy_val : double) : void
+
+		posy1 = posy_val;
+!!!150786.cpp!!!	setposx2(in posx_val : double) : void
+
+		posx2 = posx_val;
+!!!150914.cpp!!!	setposy2(in posy_val : double) : void
+
+		posy2 = posy_val;
+!!!151042.cpp!!!	setposx3(in posx_val : double) : void
+
+		posx3 = posx_val;
+!!!151170.cpp!!!	setposy3(in posy_val : double) : void
+
+		posy3 = posy_val;
+!!!151298.cpp!!!	setcolor(in color_val : string) : void
+
+		color = color_val;
+!!!151426.cpp!!!	getedge() : double
+
+		return edge;
+!!!151554.cpp!!!	getposx1() : double
+
+		return posx1;
+!!!151682.cpp!!!	getposy1() : double
+
+		return posy1;
+!!!151810.cpp!!!	getposx2() : double
+
+		return posx2;
+!!!151938.cpp!!!	getposy2() : double
+ 
+		return posy2;
+!!!152066.cpp!!!	getposx3() : double
+
+		return posx3;
+!!!152194.cpp!!!	getposy3() : double
+	
+		return posy3;
+!!!152322.cpp!!!	perimeter() : double
+
+		return (3*edge);
+!!!152450.cpp!!!	area() : double
+
+		return (pow(edge,2)*sqrt(3)/4);
+!!!152706.cpp!!!	operator ++(in  : int) : Triangle
+
+		posx1++;
+		posy1++;
+		posx2++;
+		posy2++;
+		posx3++;
+		posy3++;
+		return (*this);
+!!!152962.cpp!!!	operator --(in  : int) : Triangle
+
+		try
+		{
+			if(posx1-1>= 0 && posy1-1>= 0 && posx2-1>= 0 && posy2-1>= 0 && posx3-1>= 0 && posy3-1>= 0)
+			{
+				posx1--;
+				posy1--;
+				posx2--;
+				posy2--;
+				posx3--;
+				posy3--;
+			}
+			else throw "Coordinate can not be negative.";
+		}
+		catch(string s)
+		{
+			cerr<<endl<<s<<endl;
+		}
+		return (*this);
+!!!153090.cpp!!!	operator +(in x : double) : Triangle
+
+		Triangle shape(edge,posx1,posy1,posx2,posy2,posx3,posy3);
+		shape.edge += x;
+		return shape;
+!!!153218.cpp!!!	operator -(in x : double) : Triangle
+
+		Triangle shape(edge,posx1,posy1,posx2,posy2,posx3,posy3);
+		try
+		{
+			if(shape.edge-x >= 0) shape.edge -= x;
+			else throw "Edge can not be negative.";
+		}
+		catch(string s)
+		{
+			cerr<<endl<<s<<endl;
+		}
+		return shape;
+!!!153474.cpp!!!	add_total_area() : void
+
+		total_area += (edge*edge*sqrt(3)/4);	
+!!!153602.cpp!!!	add_total_perimeter() : void
+
+		total_perimeter += (3*edge);
+!!!153730.cpp!!!	get_total_area() : double
+
+		return total_area;
+!!!153858.cpp!!!	get_total_perimeter() : double
+
+		return total_perimeter;
