@@ -1,0 +1,5 @@
+class MyException
+!!!135554.java!!!	MyException(in message : String)
+        super(message);
+!!!135682.java!!!	getMessage() : String
+        return super.getMessage();

@@ -1,0 +1,75 @@
+class Rectangle
+!!!140930.java!!!	Rectangle()
+	
+		
+!!!141058.java!!!	Rectangle(in width_val : double, in height_val : double)
+		width = width_val;
+		height = height_val;
+		add_total_area();
+		add_total_perimeter();
+		posx = 0;
+		posy = 0;
+		color = "red";
+!!!141186.java!!!	Rectangle(in width_val : double, in height_val : double, in posx_val : double, in posy_val : double, in color_ : String)
+		width = width_val;
+		height = height_val;
+		posx = posx_val;
+		posy = posy_val;
+		color = color_;
+		add_total_area();
+		add_total_perimeter();		
+!!!141314.java!!!	setwidth(in width_val : double) : void
+		width = width_val;	
+!!!141442.java!!!	setheight(in height_val : double) : void
+		height = height_val;	
+!!!141570.java!!!	setposx(in posx_val : double) : void
+		posx = posx_val;	
+!!!141698.java!!!	setposy(in posy_val : double) : void
+		posy = posy_val;	
+!!!141826.java!!!	setcolor(in color_val : String) : void
+ 
+		color = color_val;
+!!!141954.java!!!	getwidth() : double
+		return width;
+!!!142082.java!!!	getheight() : double
+		return height;
+!!!142210.java!!!	getposx() : double
+		return posx;
+!!!142338.java!!!	getposy() : double
+		return posy;
+!!!142466.java!!!	getcolor() : String
+		return color;
+!!!142594.java!!!	add_total_area() : void
+		total_area += (width*height);	
+!!!142722.java!!!	add_total_perimeter() : void
+		total_perimeter += (2*(width+height));
+!!!142850.java!!!	get_total_area() : double
+		return total_area;
+!!!142978.java!!!	get_total_perimeter() : double
+		return total_perimeter;
+!!!143106.java!!!	area() : double
+		return width*height;
+!!!143234.java!!!	perimeter() : double
+		return (width+height)*2;
+!!!143362.java!!!	increment() : void
+		posx++;
+		posy++;
+!!!143490.java!!!	decrement() : void
+		if(posx-1>= 0 && posy-1>= 0)
+		{
+			posx--;
+			posy--;
+		}
+!!!143618.java!!!	compareTo(in o : Shape) : int
+		if(area() > o.area()) return 1;
+		else if(area() < o.area()) return -1; 
+		else return 0;
+!!!143746.java!!!	Draw(inout o : Graphics) : void
+		PolygonDyn p = new PolygonDyn(this);
+		if(color == "green") o.setColor(Color.GREEN);
+		else if(color == "red") o.setColor(Color.RED);
+		else if(color == "blue") o.setColor(Color.BLUE);
+		else if(color == "yellow") o.setColor(Color.YELLOW);
+		else if(color == "pink") o.setColor(Color.PINK);
+		o.fillPolygon(p.getx(), p.gety(), p.get_size());
+		

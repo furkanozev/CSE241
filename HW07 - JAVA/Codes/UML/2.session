@@ -1,0 +1,12 @@
+window_sizes 1800 901 450 1344 719 128
+
+diagrams
+  active  classdiagram_ref 128130 // HW7UML
+    1243 669 100 A3 0 0
+end
+show_stereotypes
+selected class_ref 129410 // PolygonDyn
+open
+  classview_ref 128130 // HW7SON
+end
+end
